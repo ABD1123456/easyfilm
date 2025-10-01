@@ -1,0 +1,85 @@
+<!-- watch.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مشاهدة الفيلم</title>
+  <style>
+    body { 
+      text-align: center; 
+      background: #111; 
+      color: white; 
+      font-family: sans-serif; 
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding-top: 56.25%;
+      height: 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* مربع الإعلان التجريبي البسيط */
+    .ad-container {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #444;
+      color: white;
+      border-radius: 10px;
+      font-size: 18px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      .video-container, .ad-container {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎬 مشاهدة الفيلم</h1>
+
+  <div id="player" class="video-container"></div>
+
+  <!-- الإعلان التجريبي البسيط -->
+  <div class="ad-container">
+    هذا مربع إعلان تجريبي ظاهر على أي شاشة
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoUrl = urlParams.get('url');
+
+    if (videoUrl) {
+      document.getElementById('player').innerHTML =
+        `<iframe src="${videoUrl}" allowfullscreen></iframe>`;
+    } else {
+      document.getElementById('player').innerHTML = "<p>ما في فيلم للعرض!</p>";
+    }
+  </script>
+</body>
+</html>

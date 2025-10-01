@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Easy Film</title>
+  <style>
+    #searchBox {
+  width: 80%;              /* أعرض */
+  padding: 15px;           /* أكبر داخليًا */
+  margin: 25px auto;       /* مسافة أكبر حوله */
+  display: block;
+  border-radius: 10px;     /* زوايا ناعمة */
+  border: 2px solid #ffcc00; /* إطار أصفر */
+  font-size: 20px;         /* الخط أكبر */
+  outline: none;           /* يخفي الخط الأزرق عند الضغط */
+  text-align: center;      /* النص بالوسط */
+}
+#searchBox:focus {
+  border-color: #e6b800;   /* لما تضغط عليه يتغير لون الإطار */
+  box-shadow: 0 0 10px #ffcc00; /* يلمع */
+}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* خلفية داكنة */
+      color: #fff;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #ffcc00;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .movie-card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .movie-card:hover {
+      transform: scale(1.05);
+    }
+    .movie-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+    .movie-card h3 {
+      margin: 10px;
+      font-size: 20px;
+      color: #ffcc00;
+    }
+    .movie-card a {
+      display: block;
+      text-align: center;
+      margin: 10px;
+      padding: 10px;
+      background-color: #ffcc00;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .movie-card a:hover {
+      background-color: #e6b800;
+    }
+  </style>
+</head>
+<input type="text" id="searchBox" placeholder="🔍 ابحث عن فيلم...">
+<body>
+  <header>
+    <h1>شاهد افضل الافلام من ايزي فيلم🎬</h1>
+  </header>
+
+  <div class="container">
+    <!-- بطاقة فيلم 1 -->
+    <div class="movie-card">
+      <img src="taken.jpg" alt="taken">
+      <h3>taken</h3>
+      <a href="https://www.youtube.com/embed/z1p5TUN3uTU" target="_blank">شاهد الآن</a>
+    </div>
+
+    <!-- بطاقة فيلم 2 -->
+    <div class="movie-card">
+      <img src="the last boy scout 1991.jpg" alt="the last boy scout 1991">
+      <h3>the last boy scout 1991</h3>
+      <a href="https://www.youtube.com/" target="_blank">شاهد الآن</a>
+    </div>
+
+    <!-- بطاقة فيلم 3 -->
+    <div class="movie-card">
+      <img src="talk to me.webp" alt="talk tp me">
+      <h3>talk to me</h3>
+      <a href="https://www.youtube.com/" target="_blank">شاهد الآن</a>
+    </div>
+    <!-- بطاقة فيلم 4 -->
+    <div class="movie-card">
+      <img src="end of watch.jpg" alt="talk tp me">
+      <h3>end of wath</h3>
+      <a href="https://www.youtube.com/" target="_blank">شاهد الآن</a>
+  </div>
+  <script>
+  // البحث عن الأفلام
+  const searchBox = document.getElementById("searchBox"); // مربع البحث
+  const movies = document.querySelectorAll(".movie-card"); // كل بطاقات الأفلام
+
+  searchBox.addEventListener("keyup", function() {
+    const value = searchBox.value.toLowerCase(); // النص اللي كتبه المستخدم
+
+    movies.forEach(movie => {
+      const title = movie.querySelector("h3").textContent.toLowerCase();
+      if (title.includes(value)) {
+        movie.style.display = "block"; // يظهر الفيلم
+      } else {
+        movie.style.display = "none"; // يخفي الفيلم
+      }
+    });
+  });
+</script
+</body>
+</html>
